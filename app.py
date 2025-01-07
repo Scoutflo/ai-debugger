@@ -1,6 +1,10 @@
+import os
+from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from rag_service import summarize_video_with_rag
+
+load_dotenv()
 
 app = FastAPI()
 
