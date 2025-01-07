@@ -7,6 +7,10 @@ app = FastAPI()
 class SummarizeRequest(BaseModel):
     url: str
 
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
 # API Endpoint
 @app.post("/summarize")
 async def summarize(request: SummarizeRequest):
