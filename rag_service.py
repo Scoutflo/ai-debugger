@@ -10,8 +10,7 @@ import openai
 
 load_dotenv()
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
-
+openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 def get_video_id(url):
     """Extract the video ID from a YouTube URL."""
