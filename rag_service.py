@@ -6,16 +6,8 @@ from langchain_community.vectorstores import FAISS
 from langchain_openai import OpenAIEmbeddings
 from langchain.chains import RetrievalQA
 from langchain_openai import ChatOpenAI
-import openai
 
 load_dotenv()
-
-# Add this near the start of your app
-print("Environment variables:", os.environ)
-print("OPEN_AI_API_KEY:", os.environ.get("OPEN_AI_API_KEY"))
-
-openai.api_key = os.environ.get("OPEN_AI_API_KEY")
-
 
 def get_video_id(url):
     """Extract the video ID from a YouTube URL."""
@@ -54,6 +46,7 @@ def summarize_video_with_rag(video_url):
         
         # Step 3: Use RetrievalQA for summarization
         llm = ChatOpenAI(
+            api_key=os.environ.get("OPENAI_API_KEY"),
             model="gpt-3.5-turbo",  # Use a chat model like gpt-4 or gpt-3.5-turbo
             temperature=0,
         )
