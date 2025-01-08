@@ -12,10 +12,9 @@ load_dotenv()
 
 # Add this near the start of your app
 print("Environment variables:", os.environ)
-print("OPENAI_API_KEY:", os.environ.get("RAILWAY_OPEN_AI_API_KEY"))
-print("sora", os.environ["RAILWAY_OPEN_AI_API_KEY"])
+print("OPEN_AI_API_KEY:", os.environ.get("OPEN_AI_API_KEY"))
 
-openai.api_key = os.environ.get("RAILWAY_OPEN_AI_API_KEY")
+openai.api_key = os.environ.get("OPEN_AI_API_KEY")
 
 
 def get_video_id(url):
