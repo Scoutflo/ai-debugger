@@ -6,8 +6,11 @@ from langchain_community.vectorstores import FAISS
 from langchain_openai import OpenAIEmbeddings
 from langchain.chains import RetrievalQA
 from langchain_openai import ChatOpenAI
+import openai
 
 load_dotenv()
+
+openai.api_key = "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"
 
 def get_video_id(url):
     """Extract the video ID from a YouTube URL."""
@@ -46,7 +49,6 @@ def summarize_video_with_rag(video_url):
         
         # Step 3: Use RetrievalQA for summarization
         llm = ChatOpenAI(
-            api_key=os.environ.get("OPENAI_API_KEY"),
             model="gpt-3.5-turbo",  # Use a chat model like gpt-4 or gpt-3.5-turbo
             temperature=0,
         )
