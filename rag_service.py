@@ -24,7 +24,7 @@ def fetch_transcript(video_url):
     if not video_id:
         raise ValueError("Invalid YouTube URL")
     
-    transcript = YouTubeTranscriptApi.get_transcript(video_id, proxies={"https": "http://0.0.0.0:8000"})
+    transcript = YouTubeTranscriptApi.get_transcript(video_id)
     return " ".join([entry['text'] for entry in transcript])
 
 def create_retriever(text):
