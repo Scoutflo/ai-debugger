@@ -1,7 +1,6 @@
 from fastapi import FastAPI, File, UploadFile, Form, HTTPException
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
-from langchain.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import FAISS
@@ -12,6 +11,8 @@ from typing import Dict
 import os
 from dotenv import load_dotenv
 import tiktoken
+from langchain_community.document_loaders import PyPDFLoader
+
 
 # Preload the cl100k_base tokenizer
 tiktoken.get_encoding("cl100k_base")
